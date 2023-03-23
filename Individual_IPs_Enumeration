@@ -1,0 +1,19 @@
+# This is a Python Script that extracts the data from the Internet about an IP address or an website/URL
+import os
+
+def data_enum (user_input):
+    print("\nDOMAIN OR IP OWNED BY:")
+    os.system("whois " + user_input + " | grep 'Registrant Organization:'")
+    print("\nORGANISATION NAME:")
+    os.system("whois "+ user_input + " | grep 'OrgName'" )
+    print("\nEMAIL CONTACTS:")
+    os.system("whois " + user_input + " | grep '@'")
+    print("\nNAMESERVER:")
+    os.system("whois " + user_input + " | grep 'Name Server'")
+    print("\nPINGING THE IP OR URL")
+    os.system("ping www." + user_input + " -c 3")
+
+for i in range(100):
+    user_input = input("\n\n\nEnter the input:")
+    print("\n"*30)
+    data_enum(user_input)
